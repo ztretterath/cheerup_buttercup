@@ -2,7 +2,7 @@
   angular.module('cheerup')
   .controller('railsController', railsController);
 
-  function railsController($http){
+  function railsController($http, $state){
     var self = this;
   }
 })()
