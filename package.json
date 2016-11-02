@@ -16,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/ztretterath/cheerup_buttercup/issues"
   },
-  "homepage": "https://github.com/ztretterath/cheerup_buttercup#readme"
+  "homepage": "https://github.com/ztretterath/cheerup_buttercup#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "favicon": "0.0.2",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7",
+    "request": "^2.76.0"
+  }
 }
