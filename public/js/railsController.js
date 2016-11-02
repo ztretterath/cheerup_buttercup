@@ -8,6 +8,7 @@
 
     $http.get(`${rootUrl} + /cheerups`)
     .then(function(response){
+      console.log('SELF', self);
       console.log(response.data);
       // Will include a state.go to profile state
     })
