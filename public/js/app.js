@@ -2,7 +2,7 @@
   angular.module('cheerup', ['ui.router'])
     .config(MainRouter);
 
-    AuthRouter.$inject = ['$stateProvider', '$urlRouterProvider']
+    MainRouter.$inject = ['$stateProvider', '$urlRouterProvider']
 
     function MainRouter($stateProvider, $urlRouterProvider) {
       $stateProvider
