@@ -1,15 +1,15 @@
 <h2>Welcome!</h2>
 
 <!-- LOGIN -->
-<h4>Login</h4>
+<!-- <h4>Login</h4>
 <form  ng-submit='rails.login(user)'>
   <input type="text" placeholder="username" ng-model="user.username">
   <input type="password" placeholder="password" ng-model="user.password">
   <button type="submit">Login</button>
-</form>
+</form> -->
 
 <!-- SIGN UP -->
-<h4>...or create an account!</h4>
+<!-- <h4>...or create an account!</h4>
 <form  ng-submit='rails.createUser(user)'>
   <input type="text" placeholder="First Name" ng-model="user.first_name">
   <input type="text" placeholder="Last Name" ng-model="user.last_name">
@@ -17,4 +17,55 @@
   <input type="text" placeholder="Email" ng-model="user.email">
   <input type="password" placeholder="Password" ng-model="user.password">
   <button type="submit">Sign Up</button>
-</form>
+</form> -->
+<h2>Login</h2>
+<div ng-controller="railsController as rails">
+  <div class="row">
+    <form class="col s12" ng-submit="rails.login(user)">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id='username' type="text" ng-model="user.username">
+          <label for='username'>Username</label>
+        </div>
+        <div class="input-field col s6">
+          <input type="password" ng-model="user.password">
+          <label>Password</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit">Login</button>
+    </form>
+  </div>
+
+<h2>...or create an account!</h2>
+<div ng-controller="railsController as rails">
+  <div class="row">
+    <form class="col s12" ng-submit="rails.createUser(user)">
+      <div class="row">
+        <div class="input-field col s6">
+          <input type="text" ng-model="user.first_name">
+          <label>First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input type="text"  ng-model="user.last_name">
+          <label>Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id='username' type="text" ng-model="user.username">
+          <label for='username'>Username</label>
+        </div>
+        <div class="input-field col s6">
+          <input type="password" ng-model="user.password">
+          <label>Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="email" ng-model="user.email">
+          <label>Email</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit">Sign up</button>
+    </form>
+  </div>
