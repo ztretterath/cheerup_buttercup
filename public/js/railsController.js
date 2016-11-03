@@ -30,6 +30,9 @@
     //   console.log('error', error);
     // })
 
+    // This method will hit the rails API
+    // for the create route and make a
+    // new user
     this.createUser = function(user) {
       return $http({
         url: 'http://localhost:3000/users',
@@ -37,6 +40,9 @@
         data: user
       })
     }
+
+
+
 
   }
 })()
