@@ -10,8 +10,11 @@
 
 <!-- SIGN UP -->
 <h4>...or create an account!</h4>
-<form  ng-submit='rails.login(user)'>
-  <input type="text" placeholder="username" ng-model="user.username">
-  <input type="password" placeholder="password" ng-model="user.password">
+<form  ng-submit='rails.createUser(user)'>
+  <input type="text" placeholder="First Name" ng-model="user.first_name">
+  <input type="text" placeholder="Last Name" ng-model="user.last_name">
+  <input type="text" placeholder="Username" ng-model="user.username">
+  <input type="text" placeholder="Email" ng-model="user.email">
+  <input type="password" placeholder="Password" ng-model="user.password">
   <button type="submit">Sign Up</button>
 </form>
