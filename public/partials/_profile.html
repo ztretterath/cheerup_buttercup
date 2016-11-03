@@ -1,2 +1,7 @@
 <h2>Profile Page</h2>
 <h4>Here we will show the user's profile</h4>
+<div ng-repeat='user in rails.users'>
+    <p>
+      {{user.first_name}}
+    </p>
+</div>
