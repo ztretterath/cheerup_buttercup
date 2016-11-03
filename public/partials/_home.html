@@ -1,2 +1,7 @@
-<h2>Home Page</h2>
-<h4>Here we will show a description of app with login options etc.</h4>
+<h2>Welcome!</h2>
+<h4>Login</h4>
+<form  ng-submit='rails.login(user)'>
+  <input type="text" placeholder="username" ng-model="user.username">
+  <input type="password" placeholder="password" ng-model="user.password">
+  <button type="submit">Login</button>
+</form>

@@ -4,7 +4,7 @@
 
   function railsController($http){
     var self = this;
-    var rootUrl = "http://localhost:3000"
+    // var rootUrl = "http://localhost:3000"
 
 
     // GETS ALL USERS -> TEST
@@ -52,8 +52,8 @@
     // user with jwt
     this.login = function(user){
       return $http({
-        url: 'http://localhost:3000/users/login'
-        method: 'POST'
+        url: 'http://localhost:3000/users/login',
+        method: 'POST',
         data: user
       })
       .then(function(response){
@@ -69,8 +69,8 @@
     // user
     this.logout = function(user){
       return $http({
-        url: 'http://localhost:3000/users/logout'
-        method: 'DELETE'
+        url: 'http://localhost:3000/users/logout',
+        method: 'DELETE',
         data: user
       })
       .then(function(response){
