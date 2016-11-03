@@ -1,7 +1,17 @@
 <h2>Welcome!</h2>
+
+<!-- LOGIN -->
 <h4>Login</h4>
 <form  ng-submit='rails.login(user)'>
   <input type="text" placeholder="username" ng-model="user.username">
   <input type="password" placeholder="password" ng-model="user.password">
   <button type="submit">Login</button>
+</form>
+
+<!-- SIGN UP -->
+<h4>...or create an account!</h4>
+<form  ng-submit='rails.login(user)'>
+  <input type="text" placeholder="username" ng-model="user.username">
+  <input type="password" placeholder="password" ng-model="user.password">
+  <button type="submit">Sign Up</button>
 </form>
