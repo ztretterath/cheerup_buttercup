@@ -4,7 +4,7 @@
 
   function railsController($http, $state, $stateParams){
     var self = this;
-    self.name = "zach"
+    self.currentUser = JSON.parse(localStorage.getItem('user'))
     var rootUrl = "http://localhost:3000"
 
 
@@ -97,12 +97,25 @@
         data: user
       })
       .then(function(response){
-        localStorage.setItem = ('user', response.data.user)
-        self.currentUser = localStorage.getItem('user')
+        localStorage.setItem('user', JSON.stringify(response.data.user))
+        self.currentUser = JSON.parse(localStorage.getItem('user'))
         $state.go('profile', {url:'/profile'})
       })
       .catch(function(error){
         console.log('ERROR ~>', error);
+      })
+    }
+
+    this.logout = function(user){
+      return $http({
+        method: 'DELETE',
+        data: user
+      })
+      .then(function(response){
+        console.log(response);
+      })
+      .catch(function(error){
+        console.log(error);
       })
     }
 
