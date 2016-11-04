@@ -97,10 +97,9 @@
         data: user
       })
       .then(function(response){
-        self.currentUser = response.data.user
-        console.log(self.currentUser)
-        $state.go('profile', {url:'/profile', currentUser: self.currentUser})
-        console.log($stateParams);
+        localStorage.setItem = ('user', response.data.user)
+        self.currentUser = localStorage.getItem('user')
+        $state.go('profile', {url:'/profile'})
       })
       .catch(function(error){
         console.log('ERROR ~>', error);
@@ -110,14 +109,14 @@
     // This method will serve as a
     // helper method to retrieve the
     // data of the logged in user
-    $http.get(`${rootUrl}/users/:id`)
-      .then(function(response){
-        self.currentUser = response.data.user;
-        console.log(response);
-      })
-      .catch(function(error){
-        console.log('ERROR ~>', error);
-      })
+    // $http.get(`${rootUrl}/users/:id`)
+    //   .then(function(response){
+    //     self.currentUser = response.data.user;
+    //     // console.log(response);
+    //   })
+    //   .catch(function(error){
+    //     console.log('ERROR ~>', error);
+    //   })
     // this.getUser = function(user){
     //   return $http({
     //     url: 'http://localhost:3000/users/:id',
