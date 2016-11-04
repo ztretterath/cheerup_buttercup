@@ -1,7 +1,5 @@
 <h2>Profile Page</h2>
-<h4>Here we will show the user's profile</h4>
-<div>
-
-    {{rails.currentUser}}
-
-</div>
+<h4>Welcome, {{rails.currentUser.username}}!</h4>
+<form ng-click="rails.logout(user)">
+    <button class="btn waves-effect waves-light red" type="submit">Logout</button>
+</form>
