@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-# GA WDIR Project 4
 
-## "Cheerup Buttercup""
-
-#### Developers: Jason Fry, Zach Retterath and Zarela Graves
-=======
 # Cheerup Buttercup
 Cheerup Buttercup allows users to sign up, log in, and provides the opportunity to share insightful, happy thoughts. An API built with rails provides all of the data for this application in JSON, which is served up with Angular on the front end.
 
@@ -33,4 +27,3 @@ https://trello.com/b/NZ1bMSk1/buttercup-project
 ## Entity Relationship Diagram
 
 ## Unsolved Problems
->>>>>>> 02acd272e0050f55f7a290c4ccb09e33819843ce
