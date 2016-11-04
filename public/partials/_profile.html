@@ -1,2 +1,8 @@
 <h2>Profile Page</h2>
 <h4>Here we will show the user's profile</h4>
+<div ng-controller='railsController as rails'>
+  {{rails.currentUser.last_name}}
+  {{rails.name}}
+  {{rails.currentUser}}
+  {{rails.foo}}
+</div>

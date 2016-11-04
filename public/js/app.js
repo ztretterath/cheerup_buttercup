@@ -12,7 +12,10 @@
         })
         .state('profile', {
           url: '/profile',
-          templateUrl: '../partials/_profile.html'
+          templateUrl: '../partials/_profile.html',
+          controller: 'railsController',
+          controllerAs: 'rails',
+          data: {currentUser: null, foo: 'BAR'}
         })
         .state('cheerups', {
           url: '/cheerups',
