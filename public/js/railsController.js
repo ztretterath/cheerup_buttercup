@@ -4,8 +4,8 @@
 
   function railsController($http, $state, $stateParams){
     var self = this;
-    self.name = "zach"
-    var rootUrl = "http://localhost:3000"
+    self.currentUser = JSON.parse(localStorage.getItem('user'));
+    var rootUrl = "http://localhost:3000";
 
 
     // GETS ALL USERS -> TEST
@@ -97,9 +97,9 @@
         data: user
       })
       .then(function(response){
-        localStorage.setItem = ('user', response.data.user)
-        self.currentUser = localStorage.getItem('user')
-        $state.go('profile', {url:'/profile'})
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+        self.currentUser = JSON.parse(localStorage.getItem('user'));
+        $state.go('profile', {url:'/profile'});
       })
       .catch(function(error){
         console.log('ERROR ~>', error);
@@ -136,17 +136,8 @@
     // for the login route and log out the
     // user
     this.logout = function(user){
-      return $http({
-        url: `${rootUrl}/users/logout`,
-        method: 'DELETE',
-        data: user
-      })
-      .then(function(response){
-        console.log(response);
-      })
-      .catch(function(error){
-        console.log('ERROR', error);
-      })
+      localStorage.removeItem('user');
+      console.log('LOGGED OUT');
     }
 
 

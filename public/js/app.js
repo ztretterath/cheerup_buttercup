@@ -12,10 +12,10 @@
         })
         .state('profile', {
           url: '/profile',
-          templateUrl: '../partials/_profile.html'
+          templateUrl: '../partials/_profile.html',
           // controller: 'railsController',
           // controllerAs: 'rails',
-          // data: {currentUser: null, foo: 'BAR'}
+          data: {currentUser: null, foo: 'BAR'}
           // resolve: {promiseObj: function($http){
           //
           // }}
