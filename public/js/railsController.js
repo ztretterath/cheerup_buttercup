@@ -2,7 +2,7 @@
   angular.module('cheerup')
   .controller('railsController', railsController);
 
-  function railsController($http){
+  function railsController($http, $state){
     var self = this;
     // var rootUrl = "http://localhost:3000"
 
@@ -29,6 +29,45 @@
     // .catch(function(error){
     //   console.log('error', error);
     // })
+
+    // this.getUsers = function(users){
+    //   return $http({
+    //     url: 'http://localhost:3000/users',
+    //     method: 'GET',
+    //     data: users
+    //   })
+    //   .then(function(response){
+    //     self.users = response.data
+    //     console.log(response);
+    //   })
+    //   .catch(function(error){
+    //     console.log('ERROR', error);
+    //   })
+    // }
+
+
+    // This method will hit the rails API
+    // for the 'users GET' route and grab
+    // data of the current user based on
+    // current user's id
+    // $http.get('http://localhost:3000/users/:id')
+    //   .then(function(response){
+    //     console.log(response);
+    //     // self.currentUser = response.data.user
+    //   })
+    //   .catch(function(error){
+    //     console.log('ERROR', error);
+    //   })
+    // this.getUser = function(user){
+    //   return $http({
+    //     url: 'http://localhost:3000/users/:id',
+    //     method: 'GET',
+    //     data: user
+    //   })
+    //   .then(function(response){
+    //     console.log(response);
+    //   })
+    // }
 
     // This method will hit the rails API
     // for the create route and make a
@@ -57,12 +96,23 @@
         data: user
       })
       .then(function(response){
-        console.log(response);
+        $state.go('profile', {url:'/profile'})
       })
       .catch(function(error){
         console.log('ERROR', error);
       })
     }
+
+    // This method will serve as a
+    // helper method to retrieve the
+    // data of the logged in user
+    $http.get('http://localhost:3000/users/:id')
+      .then(function(response){
+        self.user = response.data.user;
+      })
+      .catch(function(error){
+        console.log('ERROR ~>', error);
+      })
 
     // This method will hit the rails API
     // for the login route and log out the
