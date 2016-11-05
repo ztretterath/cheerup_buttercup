@@ -10,6 +10,10 @@
           url: '/',
           templateUrl: '../partials/_home.html'
         })
+        .state('signup', {
+          url: '/signup',
+          templateUrl: '../partials/_signup.html'
+        })
         .state('profile', {
           url: '/profile',
           templateUrl: '../partials/_profile.html',
