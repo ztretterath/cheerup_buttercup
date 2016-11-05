@@ -7,69 +7,6 @@
     self.currentUser = JSON.parse(localStorage.getItem('user'));
     var rootUrl = "http://localhost:3000";
 
-
-    // GETS ALL USERS -> TEST
-    // $http.get(`http://localhost:3000/users`)
-    // .then(function(response){
-    //   self.users = response.data
-    //   // console.log('SELF', self);
-    //   // console.log(response.data);
-    //   // Will include a state.go to profile state
-    // })
-    // .catch(function(error){
-    //   console.log('error', error);
-    // })
-
-    // $http.get(`http://localhost:3000/cheer_ups`)
-    // .then(function(response){
-    //   // self.cheerups = response.data
-    //   console.log('SELF', self);
-    //   console.log(response.data);
-    //   // Will include a state.go to profile state
-    // })
-    // .catch(function(error){
-    //   console.log('error', error);
-    // })
-
-    // this.getUsers = function(users){
-    //   return $http({
-    //     url: 'http://localhost:3000/users',
-    //     method: 'GET',
-    //     data: users
-    //   })
-    //   .then(function(response){
-    //     self.users = response.data
-    //     console.log(response);
-    //   })
-    //   .catch(function(error){
-    //     console.log('ERROR', error);
-    //   })
-    // }
-
-
-    // This method will hit the rails API
-    // for the 'users GET' route and grab
-    // data of the current user based on
-    // current user's id
-    // $http.get('http://localhost:3000/users/:id')
-    //   .then(function(response){
-    //     console.log(response);
-    //     // self.currentUser = response.data.user
-    //   })
-    //   .catch(function(error){
-    //     console.log('ERROR', error);
-    //   })
-    // this.getUser = function(user){
-    //   return $http({
-    //     url: 'http://localhost:3000/users/:id',
-    //     method: 'GET',
-    //     data: user
-    //   })
-    //   .then(function(response){
-    //     console.log(response);
-    //   })
-    // }
-
     // This method will hit the rails API
     // for the create route and make a
     // new user
@@ -106,32 +43,6 @@
       })
     }
 
-    // This method will serve as a
-    // helper method to retrieve the
-    // data of the logged in user
-    // $http.get(`${rootUrl}/users/:id`)
-    //   .then(function(response){
-    //     self.currentUser = response.data.user;
-    //     // console.log(response);
-    //   })
-    //   .catch(function(error){
-    //     console.log('ERROR ~>', error);
-    //   })
-    // this.getUser = function(user){
-    //   return $http({
-    //     url: 'http://localhost:3000/users/:id',
-    //     method: 'GET',
-    //     data: user
-    //   })
-    //   .then(function(response){
-    //     self.currentUser = response.data.user
-    //     console.log(response);
-    //   })
-    //   .catch(function(error){
-    //     console.log(error);
-    //   })
-    // }
-
     // This method will hit the rails API
     // for the login route and log out the
     // user
@@ -140,8 +51,27 @@
       console.log('LOGGED OUT');
     }
 
-
-
+    this.createCheerup = function(cheerup){
+      return $http({
+        url: `${rootUrl}/users/:id/add_cheer_up`,
+        method: 'GET',
+        data: {cheerup: cheerup}
+      })
+      .then(function(response){
+        console.log(response);
+      })
+      .then(function(response){
+        self.cheerup = response.config.data
+        var cheerups = self.currentUser.cheer_ups
+        cheerups.push(self.cheerup)
+        // console.log('CHEERUP CREATED');
+        // console.log(self.cheerup);
+        console.log(self.currentUser.cheer_ups)
+      })
+      .catch(function(error){
+        console.log('ERROR ~>', error);
+      })
+    }
 
   }
 })()
