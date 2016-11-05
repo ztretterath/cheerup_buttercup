@@ -54,8 +54,11 @@
     this.createCheerup = function(cheerup){
       return $http({
         url: `${rootUrl}/users/:id/add_cheer_up`,
-        method: 'POST',
-        data: cheerup
+        method: 'GET',
+        data: {cheerup: cheerup}
+      })
+      .then(function(response){
+        console.log(response);
       })
       .then(function(response){
         self.cheerup = response.config.data
