@@ -59,8 +59,11 @@
       })
       .then(function(response){
         self.cheerup = response.config.data
-        console.log('CHEERUP CREATED');
-        console.log(self.cheerup);
+        var cheerups = self.currentUser.cheer_ups
+        cheerups.push(self.cheerup)
+        // console.log('CHEERUP CREATED');
+        // console.log(self.cheerup);
+        console.log(self.currentUser.cheer_ups)
       })
       .catch(function(error){
         console.log('ERROR ~>', error);
