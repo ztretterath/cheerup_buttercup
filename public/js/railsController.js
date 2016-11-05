@@ -58,8 +58,9 @@
         data: cheerup
       })
       .then(function(response){
+        self.cheerup = response.config.data
         console.log('CHEERUP CREATED');
-        console.log(response);
+        console.log(self.cheerup);
       })
       .catch(function(error){
         console.log('ERROR ~>', error);
