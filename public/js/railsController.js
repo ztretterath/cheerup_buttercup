@@ -69,23 +69,5 @@
       })
     }
 
-    //Zarela's try **********************
-    // this.createCheerup = function(cheerup, cheer_up_id){
-    //   return $http({
-    //     url: `${rootUrl}/users/:id/add_cheer_up`,
-    //     method: 'POST',
-    //     data: {cheerup: cheerup}
-    //   })
-    //   .then(function(response){
-    //     console.log('=======> Response:', response);
-    //
-    //   })
-    //   .catch(function(error){
-    //     console.log('ERROR ~>', error);
-    //   })
-    // }
-    //****************************
-
-
   }
 })()
