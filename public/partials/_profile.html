@@ -11,9 +11,9 @@
  <div class="col s12 m6">
    <div class="card blue-grey darken-1">
      <div class="card-content white-text">
-       <span class="card-title">New Cheerup</span>
+       <span ng-click="toggle_cheerup_form=!toggle_cheerup_form" class="card-title">New Cheerup</span>
        <div class="row" ng-controller="railsController as rails">
-         <form class="col s12" ng-submit="rails.createCheerup(cheerup)">
+         <form ng-show="toggle_cheerup_form" class="col s12" ng-submit="rails.createCheerup(cheerup)">
            <div class="row">
              <div class="input-field col s6">
                <input type="text" ng-model="cheerup.title">
@@ -39,4 +39,4 @@
 </div>
 
 <h4>Your Cheerups</h4>
-<h5 ng-repear="cheerup rails.currentUser.cheer_ups">{{cheerup}}</h5>
+<h5 ng-repeat="cheerup in rails.currentUser.cheer_ups">{{cheerup}}</h5>
