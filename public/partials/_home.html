@@ -2,9 +2,9 @@
    <div class="col s12 m6">
      <div class="card blue-grey darken-1">
        <div class="card-content white-text">
-         <span class="card-title">Login</span>
+         <span ng-click="toggle_login_form=!toggle_login_form" class="card-title">Login</span>
          <div class="row" ng-controller="railsController as rails">
-           <form class="col s12" ng-submit="rails.login(user)">
+           <form ng-show="toggle_login_form" class="col s12" ng-submit="rails.login(user)">
              <div class="row">
                <div class="input-field col s6">
                  <input id='username' type="text" ng-model="user.username">
@@ -27,9 +27,9 @@
    <div class="col s12 m6">
      <div class="card blue-grey darken-1">
        <div class="card-content white-text">
-         <span class="card-title">Create Account</span>
+         <span ng-click="toggle_register_form=!toggle_register_form" class="card-title">Create Account</span>
          <div class="row" ng-controller="railsController as rails">
-           <form class="col s12" ng-submit="rails.createUser(user)">
+           <form ng-show="toggle_register_form"  class="col s12" ng-submit="rails.createUser(user)">
              <div class="row">
                <div class="input-field col s6">
                  <input type="text" ng-model="user.first_name">
