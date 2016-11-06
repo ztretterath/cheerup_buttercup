@@ -17,7 +17,7 @@
         data: user
       })
       .then(function(response){
-        console.log(response);
+        $state.go('home', {url:'/'});
       })
       .catch(function(error){
         console.log('ERROR', error);
@@ -34,13 +34,12 @@
         data: {user: user}
       })
       .then(function(response){
-        self.user = response.data.user
-        self.id = response.data.user.id
-        localStorage.setItem('token', JSON.stringify(response.data.token))
-        // localStorage.setItem('user', JSON.stringify(response.data.user));
-        // self.currentUser = JSON.parse(localStorage.getItem('user'));
-        $state.go('profile', {url:'/profile', user: response.data.user});
-        console.log(user, localStorage.getItem('token'));
+        self.user = response.data.user;
+        self.id = response.data.user.id;
+        localStorage.setItem('token', JSON.stringify(response.data.token));
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+        self.currentUser = JSON.parse(localStorage.getItem('user'));
+        $state.go('profile', {url:'/profile'});
       })
       .catch(function(error){
         console.log('ERROR ~>', error);
@@ -56,11 +55,6 @@
     }
 
     this.createCheerup = function(cheerup, user_id){
-      var cheerup = {
-        title: cheerup.title,
-        category: cheerup.category,
-        content: cheerup.content
-      }
       return $http({
         url: `${rootUrl}/users/:id/add_cheer_up`,
         method: 'POST',
@@ -68,9 +62,9 @@
       })
       .then(function(response){
         var cheerups = self.currentUser.cheer_ups;
-        self.newCheerup = response.config.data.cheerup;
-        cheerups.unshift(self.newCheerup); // adds to beginning of array
-        console.log(cheerups);
+        var newCheerup = response.config.data.cheerup;
+        cheerups.unshift(newCheerup); // adds to beginning of array
+        console.log(self.currentUser.cheer_ups[0].category);
       })
       .catch(function(error){
         console.log('ERROR ~>', error);

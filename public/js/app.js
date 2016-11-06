@@ -19,7 +19,7 @@
           templateUrl: '../partials/_profile.html',
           // controller: 'railsController',
           // controllerAs: 'rails',
-          data: {currentUser: null, foo: 'BAR'}
+          data: {currentUser: null}
           // resolve: {promiseObj: function($http){
           //
           // }}
