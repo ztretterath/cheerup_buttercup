@@ -31,7 +31,7 @@
       return $http({
         url: `${rootUrl}/users/login`,
         method: 'POST',
-        data: user
+        data: {user: user}
       })
       .then(function(response){
         localStorage.setItem('user', JSON.stringify(response.data.user));
@@ -55,7 +55,7 @@
       return $http({
         url: `${rootUrl}/users/:id/add_cheer_up`,
         method: 'POST',
-        data: {cheerup: cheerup}
+        data: {cheer_ups: cheerup}
       })
       .then(function(response){
         console.log('=======> Cheerup:', response.config.data.cheerup);
