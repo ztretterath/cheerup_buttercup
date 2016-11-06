@@ -1,0 +1,9 @@
+.logo{
+  font-family: 'Architects Daughter', cursive;
+}
+span.logoText{
+  font-family: 'Righteous', cursive;
+  font-size: 2em;
+  text-shadow: 2px 2px 6px black;
+  padding: 1vw;
+}
