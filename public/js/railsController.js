@@ -34,9 +34,13 @@
         data: {user: user}
       })
       .then(function(response){
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-        self.currentUser = JSON.parse(localStorage.getItem('user'));
-        $state.go('profile', {url:'/profile'});
+        self.user = response.data.user
+        self.id = response.data.user.id
+        localStorage.setItem('token', JSON.stringify(response.data.token))
+        // localStorage.setItem('user', JSON.stringify(response.data.user));
+        // self.currentUser = JSON.parse(localStorage.getItem('user'));
+        $state.go('profile', {url:'/profile', user: response.data.user});
+        console.log(user, localStorage.getItem('token'));
       })
       .catch(function(error){
         console.log('ERROR ~>', error);
@@ -51,18 +55,22 @@
       console.log('LOGGED OUT');
     }
 
-    this.createCheerup = function(cheerup){
+    this.createCheerup = function(cheerup, user_id){
+      var cheerup = {
+        title: cheerup.title,
+        category: cheerup.category,
+        content: cheerup.content
+      }
       return $http({
         url: `${rootUrl}/users/:id/add_cheer_up`,
         method: 'POST',
-        data: {cheer_ups: cheerup}
+        data: {cheerup: cheerup}
       })
       .then(function(response){
-        console.log('=======> Cheerup:', response.config.data.cheerup);
-        self.newCheerup = response.config.data.cheerup;
         var cheerups = self.currentUser.cheer_ups;
+        self.newCheerup = response.config.data.cheerup;
         cheerups.unshift(self.newCheerup); // adds to beginning of array
-        console.log(self.currentUser.cheer_ups);
+        console.log(cheerups);
       })
       .catch(function(error){
         console.log('ERROR ~>', error);
