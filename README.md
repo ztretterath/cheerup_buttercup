@@ -1,3 +1,4 @@
+
 # Cheerup Buttercup
 Cheerup Buttercup allows users to sign up, log in, and provides the opportunity to share insightful, happy thoughts. An API built with rails provides all of the data for this application in JSON, which is served up with Angular on the front end.
 
