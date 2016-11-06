@@ -54,19 +54,15 @@
     this.createCheerup = function(cheerup){
       return $http({
         url: `${rootUrl}/users/:id/add_cheer_up`,
-        method: 'GET',
+        method: 'POST',
         data: {cheerup: cheerup}
       })
       .then(function(response){
-        console.log(response);
-      })
-      .then(function(response){
-        self.cheerup = response.config.data
-        var cheerups = self.currentUser.cheer_ups
-        cheerups.push(self.cheerup)
-        // console.log('CHEERUP CREATED');
-        // console.log(self.cheerup);
-        console.log(self.currentUser.cheer_ups)
+        console.log('=======> Cheerup:', response.config.data.cheerup);
+        self.newCheerup = response.config.data.cheerup;
+        var cheerups = self.currentUser.cheer_ups;
+        cheerups.unshift(self.newCheerup); // adds to beginning of array
+        console.log(self.currentUser.cheer_ups);
       })
       .catch(function(error){
         console.log('ERROR ~>', error);
