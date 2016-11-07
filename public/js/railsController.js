@@ -97,7 +97,7 @@
       })
     }
 
-    this.update(function(user_id, newPassword){
+    this.update = function(user_id, newPassword){
       return $http({
         url: `${rootUrl}/users/:id`,
         method: 'PATCH',
@@ -111,7 +111,7 @@
       .catch(function(error){
         console.log(error);
       })
-    })
+    }
 
 
   }

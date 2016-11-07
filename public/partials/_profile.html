@@ -7,12 +7,24 @@
 </form>
 
 
-    <span ng-click='toggle_edit_form=!toggle_edit_form'>
-      <button class="btn waves-effect waves-light red" type="submit">Edit Account</button>
-    </span>
-    <form ng-show="edit_form" ng-click="rails.update(user)" class="center">
-      <input type="text" placeholder="New Password" ng-model="user.password">
-    </form>
+<div class="col s12 m6">
+  <div class="card blue-grey darken-1">
+    <div class="card-content white-text">
+      <span ng-click="toggle_edit_form=!toggle_edit_form" class="card-title">Edit Account</span>
+      <div class="row" ng-controller="railsController as rails">
+        <form ng-show="toggle_edit_form" class="col s12" ng-submit="rails.update(user)">
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" ng-model="user.password">
+              <label for='title'>New Password</label>
+            </div>
+          </div>
+          <button class="btn waves-effect waves-light teal" type="submit">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Add a New Cheerup -->
 <!-- <div class="row"> -->
