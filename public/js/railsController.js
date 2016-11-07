@@ -7,19 +7,18 @@
     var self = this;
     var rootUrl = "http://localhost:3000";
     self.currentUser = JSON.parse(localStorage.getItem('user'));
-
+    self.newPassword = {};
+    
     // This method will hit the rails API
     // for the create route and make a
     // new user
    this.createUser = function(user) {
-      console.log(user);
       return $http({
         url: `${rootUrl}/users`,
         method: 'POST',
         data: {user: user}
       })
       .then(function(response) {
-        console.log(response);
         if (response.data.status === 200) {
           console.log('success');
           self.success = true;
@@ -31,7 +30,7 @@
       .catch(function(err) {
         console.log(err);
       })
-    }
+    } // end this.createUser
 
     // This method will hit the rails API
     // for the login route and log in the
@@ -43,7 +42,6 @@
         data: {user: user}
       })
       .then(function(response){
-        console.log(response);
         self.currentUser = response.data.user
         self.id = response.data.user.id
         localStorage.setItem('token', JSON.stringify(response.data.token))
@@ -53,7 +51,7 @@
       .catch(function(error){
         console.log('ERROR ~>', error);
       })
-    }
+    } // end this.login
 
     // This method will hit the rails API
     // for the login route and log out the
@@ -62,8 +60,7 @@
       localStorage.removeItem('user');
       localStorage.removeItem('token')
       $state.go('home', {url: '/'})
-      console.log('LOGGED OUT');
-    }
+    } // end this.logout
 
     // This method will hit the rails API
     // for the add cheerup route and add
@@ -85,12 +82,11 @@
         var cheerups = self.currentUser.cheer_ups;
         var newCheerup = response.config.data.cheerup;
         cheerups.unshift(newCheerup); // adds to beginning of array
-        console.log(cheerups);
       })
       .catch(function(error){
         console.log('ERROR ~>', error);
       })
-    }
+    } // end this.createCheerup
 
     // This method will hit the rails API
     // for the delete user method and will
@@ -103,12 +99,11 @@
       })
       .then(function(response){
         self.user = response.config.data.user;
-        console.log(user);
       })
       .catch(function(error){
         console.log('ERROR ~>', error);
       })
-    }
+    } // end this.deleteUser
 
     // This method will hit the rails API
     // for the update user method and will
@@ -121,7 +116,6 @@
       })
       .then(function(response){
         self.newPassword = {};
-        console.log(`UPDATED!`);
         localStorage.removeItem('user');
         localStorage.removeItem('token');
         $state.go('home', {url: '/'})
@@ -129,39 +123,12 @@
       .catch(function(error){
         console.log(error);
       })
-    }
+    } // end this.update
 
     $http.get(`${rootUrl}/cheer_ups`)
         .then(function(response){
-          console.log(response);
           self.cheer_ups = response.data;
         })
 
-    self.newPassword = {};
-
-
-  }
-})() //end controller
-
-//     this.login = function(user) {
-//       return $http({
-//         url: `${rootUrl}/users/login`,
-//         method: 'POST',
-//         data: {user: user}
-//       })
-//       .then(function(response) {
-//         console.log(response);
-//         self.user = response.data.user;
-//         self.id = response.data.user.id;
-//         // console.log(self.user);
-//         console.log('token >>>', response.data.token);
-//         // localStorage.setItem('token', JSON.stringify(response.data.token))
-//         localStorage.setItem('token',response.data.token)
-//             $state.go('profile', {url: '/profile', user: response.data.user})
-//       })
-//       .catch(function(err) {
-//         console.log(err);
-//       })
-//     }
-//   }); //end of controller
-// })()
+  } // end railsController
+})()
