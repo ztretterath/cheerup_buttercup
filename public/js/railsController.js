@@ -60,6 +60,7 @@
     this.logout = function(user){
       localStorage.removeItem('user');
       localStorage.removeItem('token')
+      $state.go('home', {url: '/'})
       console.log('LOGGED OUT');
     }
 
@@ -87,13 +88,19 @@
       })
     }
 
-    this.deleteUser = function(users){
-      console.log("Deleting===>", users)
-      // self.user.splice(index, 1);
+    this.deleteUser = function(user){
+
       return $http({
         url: `${rootUrl}/users/:id`,
         method: 'DELETE',
-        data: {users: users}
+        data: {user: user}
+      })
+      .then(function(response){
+        self.user = response.config.data.user;
+        console.log(user);
+      })
+      .catch(function(error){
+        console.log('ERROR ~>', error);
       })
     }
 
