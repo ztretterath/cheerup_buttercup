@@ -46,6 +46,7 @@
         self.id = response.data.user.id;
         localStorage.setItem('token', JSON.stringify(response.data.token));
         localStorage.setItem('user', JSON.stringify(response.data.user));
+        localStorage.setItem('user', response.data.user);
         self.currentUser = JSON.parse(localStorage.getItem('user'));
         $state.go('profile', {url:'/profile', user: response.data.user});
       })
@@ -69,6 +70,7 @@
         data: {cheerup: cheerup}
       })
       .then(function(response){
+        self.newCheerup = response.config.data.cheerup;
         var cheerups = self.currentUser.cheer_ups;
         var newCheerup = response.config.data.cheerup;
         cheerups.unshift(newCheerup); // adds to beginning of array
