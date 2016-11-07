@@ -9,9 +9,9 @@ Cheerup Buttercup allows users to sign up, log in, and provides the opportunity 
 [Wireframe](https://drive.google.com/file/d/0B9p6hJKmZMZEbXRyYzQ0M0NqU3c/view?usp=sharing)
 
 # Developers
-[Jason Fry] (https://github.com/Auslegung)
-[Zach Retterath] (https://github.com/ztretterath)
-[Zarela Graves] (https://github.com/zarela)
+* [Jason Fry] (https://github.com/Auslegung)
+* [Zach Retterath] (https://github.com/ztretterath)
+* [Zarela Graves] (https://github.com/zarela)
 
 ## Feature Specs
 ```markdown
