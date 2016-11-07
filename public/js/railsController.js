@@ -75,6 +75,7 @@
         data: {cheerup: cheerup}
       })
       .then(function(response){
+        self.newCheerup = response.config.data.cheerup;
         var cheerups = self.currentUser.cheer_ups;
         var newCheerup = response.config.data.cheerup;
         cheerups.unshift(newCheerup); // adds to beginning of array
