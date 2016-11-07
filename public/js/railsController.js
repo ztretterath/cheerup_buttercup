@@ -44,9 +44,9 @@
         self.user = response.data.user
         self.id = response.data.user.id
         localStorage.setItem('token', JSON.stringify(response.data.token))
-        // localStorage.setItem('user', JSON.stringify(response.data.user));
+        localStorage.setItem('user', JSON.stringify(response.data.user));
         // self.currentUser = JSON.parse(localStorage.getItem('user'));
-        $state.go('profile', {url:'/profile'});
+        $state.go('profile', {url:'/profile', user: response.data.user});
         console.log(user, localStorage.getItem('token'));
       })
       .catch(function(error){
