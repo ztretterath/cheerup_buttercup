@@ -12,11 +12,15 @@
     <div class="card-content white-text">
       <span ng-click="toggle_edit_form=!toggle_edit_form" class="card-title">Edit Account</span>
       <div class="row" ng-controller="railsController as rails">
-        <form ng-show="toggle_edit_form" class="col s12" ng-submit="rails.update(newPassword)">
+        <form ng-show="toggle_edit_form" class="col s12" ng-submit="rails.update(rails.id, rails.newInfo)">
           <div class="row">
-            <div class="input-field col s12">
-              <input type="text" ng-model="newPassword">
+            <div class="input-field col s6">
+              <input type="text" ng-model="rails.newInfo.password">
               <label for='title'>New Password</label>
+            </div>
+            <div class="input-field col s6">
+              <input type="text" ng-model="rails.newInfo.username">
+              <label for='title'>New Username</label>
             </div>
           </div>
           <button class="btn waves-effect waves-light teal" type="submit">Update</button>

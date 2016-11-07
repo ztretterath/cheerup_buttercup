@@ -43,6 +43,7 @@
         data: {user: user}
       })
       .then(function(response){
+        console.log(response);
         self.currentUser = response.data.user
         self.id = response.data.user.id
         localStorage.setItem('token', JSON.stringify(response.data.token))
@@ -64,6 +65,9 @@
       console.log('LOGGED OUT');
     }
 
+    // This method will hit the rails API
+    // for the add cheerup route and add
+    // a cheerup to the currrent user
     this.createCheerup = function(cheerup, user_id){
       var cheerup = {
         title: cheerup.title,
@@ -88,8 +92,10 @@
       })
     }
 
+    // This method will hit the rails API
+    // for the delete user method and will
+    // remove the user from the db
     this.deleteUser = function(user){
-
       return $http({
         url: `${rootUrl}/users/:id`,
         method: 'DELETE',
@@ -104,21 +110,28 @@
       })
     }
 
-    this.update = function(user_id, newPassword){
+    // This method will hit the rails API
+    // for the update user method and will
+    // update the user's info in the db
+    this.update = function(user_id, newInfo){
       return $http({
         url: `${rootUrl}/users/:id`,
         method: 'PATCH',
-        data: {password: newPassword}
+        data: {user: newInfo}
       })
       .then(function(response){
+        self.newPassword = {};
+        console.log(`UPDATED!`);
         localStorage.removeItem('user');
-        localStorage.removeItem('token')
+        localStorage.removeItem('token');
         $state.go('home', {url: '/'})
       })
       .catch(function(error){
         console.log(error);
       })
     }
+
+    self.newPassword = {};
 
 
   }
