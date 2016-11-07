@@ -85,6 +85,19 @@
         console.log('ERROR ~>', error);
       })
     }
+
+    this.deleteUser = function(users){
+      console.log("Deleting===>", users)
+      // self.user.splice(index, 1);
+      return $http({
+        url: `${rootUrl}/users/:id`,
+        method: 'DELETE',
+        data: {users: users}
+      })
+    }
+
+
+
   }
 })() //end controller
 

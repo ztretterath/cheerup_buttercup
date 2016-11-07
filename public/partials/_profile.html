@@ -38,14 +38,6 @@
  </div>
 </div>
 
-<!-- Delete user -->
-<form ng-submit="rails.detroy(user)" class="center">
-    <button class="btn waves-effect waves-light red" type="submit">Delete my Account</button>
-</form>
-
-
-
-
 <h4>Your Cheerups</h4>
 <h5 ng-repeat="cheer in rails.currentUser.cheer_ups">{{cheer.category}}</h5>
 <div class="row">
@@ -64,3 +56,8 @@
    </div>
   </div>
 </div>
+
+<!-- Delete user -->
+<form ng-submit="rails.deleteUser(user)" class="center">
+    <button class="btn waves-effect waves-light red" type="submit">Delete my Account</button>
+</form>
