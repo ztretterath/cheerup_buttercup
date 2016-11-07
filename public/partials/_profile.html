@@ -6,32 +6,32 @@
     <button class="btn waves-effect waves-light teal" type="submit">Logout</button>
 </form>
 
-
-<div class="col s12 m6">
-  <div class="card blue-grey darken-1">
-    <div class="card-content white-text">
-      <span ng-click="toggle_edit_form=!toggle_edit_form" class="card-title">Edit Account</span>
-      <div class="row" ng-controller="railsController as rails">
-        <form ng-show="toggle_edit_form" class="col s12" ng-submit="rails.update(rails.id, rails.newInfo)">
-          <div class="row">
-            <div class="input-field col s6">
-              <input type="text" ng-model="rails.newInfo.password">
-              <label for='title'>New Password</label>
+<div class="row center">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span ng-click="toggle_edit_form=!toggle_edit_form" class="card-title">Edit Account</span>
+        <div class="row" ng-controller="railsController as rails">
+          <form ng-show="toggle_edit_form" class="col s12" ng-submit="rails.update(rails.id, rails.newInfo)">
+            <div class="row">
+              <div class="input-field col s6">
+                <input type="text" ng-model="rails.newInfo.password">
+                <label for='title'>New Password</label>
+              </div>
+              <div class="input-field col s6">
+                <input type="text" ng-model="rails.newInfo.username">
+                <label for='title'>New Username</label>
+              </div>
             </div>
-            <div class="input-field col s6">
-              <input type="text" ng-model="rails.newInfo.username">
-              <label for='title'>New Username</label>
-            </div>
-          </div>
-          <button class="btn waves-effect waves-light teal" type="submit">Update</button>
-        </form>
+            <button class="btn waves-effect waves-light teal" type="submit">Update</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
 <!-- Add a New Cheerup -->
-<!-- <div class="row"> -->
+<div class="row center">
  <div class="col s12 m6">
    <div class="card blue-grey darken-1">
      <div class="card-content white-text">
@@ -60,7 +60,7 @@
      </div>
    </div>
  </div>
-<!-- </div> -->
+</div>
 
 <h4 class="center"><strong>Your Cheerups</strong></h4>
 <h5 ng-repeat="cheer in rails.currentUser.cheer_ups">{{cheer.category}}</h5>
