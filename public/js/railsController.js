@@ -7,6 +7,14 @@
     self.currentUser = JSON.parse(localStorage.getItem('user'));
     var rootUrl = "http://localhost:3000";
 
+    // $http.get(`${rootUrl}/users`)
+    //   .then(function(response){
+    //     console.log(response);
+    //   })
+    //   .catch(function(error){
+    //     console.log('ERROR ~>', error);
+    //   })
+
     // This method will hit the rails API
     // for the create route and make a
     // new user
@@ -31,7 +39,7 @@
       return $http({
         url: `${rootUrl}/users/login`,
         method: 'POST',
-        data: {user: user}
+        data: user
       })
       .then(function(response){
         self.user = response.data.user;
@@ -39,7 +47,7 @@
         localStorage.setItem('token', JSON.stringify(response.data.token));
         localStorage.setItem('user', JSON.stringify(response.data.user));
         self.currentUser = JSON.parse(localStorage.getItem('user'));
-        $state.go('profile', {url:'/profile'});
+        $state.go('profile', {url:'/profile', user: response.data.user});
       })
       .catch(function(error){
         console.log('ERROR ~>', error);
