@@ -1,0 +1,31 @@
+{
+  "name": "cheerup_buttercup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ztretterath/cheerup_buttercup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ztretterath/cheerup_buttercup/issues"
+  },
+  "homepage": "https://github.com/ztretterath/cheerup_buttercup#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-local-storage": "^0.5.0",
+    "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "favicon": "0.0.2",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7",
+    "request": "^2.76.0"
+  }
+}
