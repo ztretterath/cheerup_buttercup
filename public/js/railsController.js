@@ -35,6 +35,7 @@
       })
       .then(function(response){
         localStorage.setItem('user', JSON.stringify(response.data.user));
+        localStorage.setItem('user', response.data.user);
         self.currentUser = JSON.parse(localStorage.getItem('user'));
         $state.go('profile', {url:'/profile'});
       })
@@ -52,13 +53,13 @@
     }
 
     this.createCheerup = function(cheerup){
+      debugger;
       return $http({
         url: `${rootUrl}/users/:id/add_cheer_up`,
         method: 'POST',
         data: {cheerup: cheerup}
       })
       .then(function(response){
-        console.log('=======> Cheerup:', response.config.data.cheerup);
         self.newCheerup = response.config.data.cheerup;
         var cheerups = self.currentUser.cheer_ups;
         cheerups.unshift(self.newCheerup); // adds to beginning of array
