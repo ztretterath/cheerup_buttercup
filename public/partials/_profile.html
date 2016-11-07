@@ -1,13 +1,33 @@
 <div class="center">
-  <h3>Welcome, {{rails.currentUser.username}}!</h3>
+  <h3>Welcome!</h3>
 </div>
 
 <form ng-click="rails.logout(user)" class="center">
     <button class="btn waves-effect waves-light red" type="submit">Logout</button>
 </form>
 
+
+<div class="col s12 m6">
+  <div class="card blue-grey darken-1">
+    <div class="card-content white-text">
+      <span ng-click="toggle_edit_form=!toggle_edit_form" class="card-title">Edit Account</span>
+      <div class="row" ng-controller="railsController as rails">
+        <form ng-show="toggle_edit_form" class="col s12" ng-submit="rails.update(user)">
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" ng-model="user.password">
+              <label for='title'>New Password</label>
+            </div>
+          </div>
+          <button class="btn waves-effect waves-light teal" type="submit">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Add a New Cheerup -->
-<div class="row">
+<!-- <div class="row"> -->
  <div class="col s12 m6">
    <div class="card blue-grey darken-1">
      <div class="card-content white-text">
@@ -36,9 +56,9 @@
      </div>
    </div>
  </div>
-</div>
+<!-- </div> -->
 
-<h4>Your Cheerups</h4>
+<h4 class="center"><strong>Your Cheerups</strong></h4>
 <h5 ng-repeat="cheer in rails.currentUser.cheer_ups">{{cheer.category}}</h5>
 <div class="row">
   <div class="col s6 m3">
@@ -52,6 +72,37 @@
        </p>
        <div class="row">
        </div>
+       <button class="btn waves-effect waves-light red" type="submit">Delete</button>
+     </div>
+   </div>
+  </div>
+  <div class="col s6 m3">
+   <div class="card blue-grey darken-1">
+     <div class="card-content white-text">
+       <span class="card-title"><strong>Reach Out!</strong></span>
+       <br>
+       <span class="card-title">Category: belonging</span>
+       <p class='projectDescription'>
+         If you ever feel like you don't belong, stop! You do! There are people who love you and want to spend time with you if you ask...
+       </p>
+       <div class="row">
+       </div>
+       <button class="btn waves-effect waves-light red" type="submit">Delete</button>
+     </div>
+   </div>
+  </div>
+  <div class="col s6 m3">
+   <div class="card blue-grey darken-1">
+     <div class="card-content white-text">
+       <span class="card-title"><strong>To My Baby!</strong></span>
+       <br>
+       <span class="card-title">Category: love</span>
+       <p class='projectDescription'>
+         To my husband of 7 years...I LOVE YOU BABE! My hubs is such a great friend, chef, and father to our 5 kittens. Don't know what I would do without you <3
+       </p>
+       <div class="row">
+       </div>
+       <button class="btn waves-effect waves-light red" type="submit">Delete</button>
      </div>
    </div>
   </div>

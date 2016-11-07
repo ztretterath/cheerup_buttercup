@@ -3,6 +3,7 @@
   .controller('railsController', railsController);
 
   function railsController($http, $state, $stateParams){
+
     var self = this;
     var rootUrl = "http://localhost:3000";
     self.currentUser = JSON.parse(localStorage.getItem('user'));
@@ -42,13 +43,11 @@
         data: {user: user}
       })
       .then(function(response){
-        self.user = response.data.user
+        self.currentUser = response.data.user
         self.id = response.data.user.id
         localStorage.setItem('token', JSON.stringify(response.data.token))
-        // localStorage.setItem('user', JSON.stringify(response.data.user));
-        // self.currentUser = JSON.parse(localStorage.getItem('user'));
-        $state.go('profile', {url:'/profile'});
-        console.log(user, localStorage.getItem('token'));
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+        $state.go('profile', {url:'/profile', user: response.data.user});
       })
       .catch(function(error){
         console.log('ERROR ~>', error);
@@ -77,6 +76,7 @@
         data: {cheerup: cheerup}
       })
       .then(function(response){
+        self.currentUser = JSON.parse(localStorage.getItem('user'));
         self.newCheerup = response.config.data.cheerup;
         var cheerups = self.currentUser.cheer_ups;
         var newCheerup = response.config.data.cheerup;
@@ -104,6 +104,21 @@
       })
     }
 
+    this.update = function(user_id, newPassword){
+      return $http({
+        url: `${rootUrl}/users/:id`,
+        method: 'PATCH',
+        data: {password: newPassword}
+      })
+      .then(function(response){
+        localStorage.removeItem('user');
+        localStorage.removeItem('token')
+        $state.go('home', {url: '/'})
+      })
+      .catch(function(error){
+        console.log(error);
+      })
+    }
 
 
   }
