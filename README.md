@@ -26,4 +26,10 @@ https://trello.com/b/NZ1bMSk1/buttercup-project
 
 ## Entity Relationship Diagram
 
+1. A user has many cheerups and also many reviews through cheerups
+2. A review is a joint table and belongs to a cheerup and a user
+3. A cheerup belongs to a user and has many reviews
+
 ## Unsolved Problems
+
+-Cheerups are created in localStorage but are not added to the database and therefore do not persist over multiple sessions
