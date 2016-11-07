@@ -131,6 +131,12 @@
       })
     }
 
+    $http.get(`${rootUrl}/cheer_ups`)
+        .then(function(response){
+          console.log(response);
+          self.cheer_ups = response.data;
+        })
+
     self.newPassword = {};
 
 
