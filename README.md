@@ -2,6 +2,14 @@
 # Cheerup Buttercup
 Cheerup Buttercup allows users to sign up, log in, and provides the opportunity to share insightful, happy thoughts. An API built with rails provides all of the data for this application in JSON, which is served up with Angular on the front end.
 
+[Heroku Link] (https:// /)
+[Original Wireframe](https://drive.google.com/file/d/0B9p6hJKmZMZEbXRyYzQ0M0NqU3c/view?usp=sharing)
+
+# Developers
+Jason Fry
+Zach Retterath
+Zarela Graves
+
 ## Feature Specs
 ```markdown
 1. When a user visits '/',
@@ -22,9 +30,11 @@ Cheerup Buttercup allows users to sign up, log in, and provides the opportunity 
 
 **User Stories**
 
-https://trello.com/b/NZ1bMSk1/buttercup-project
+[Trello Link] (https://trello.com/b/NZ1bMSk1/buttercup-project)
 
 ## Entity Relationship Diagram
+
+Diagram (http://creately.com/diagram/example/iv084ofe1/Buttercup)
 
 1. A user has many cheerups and also many reviews through cheerups
 2. A review is a joint table and belongs to a cheerup and a user
